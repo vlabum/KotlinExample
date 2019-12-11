@@ -97,7 +97,7 @@ object UserHolder {
     fun importUsers(list: List<String>): List<User> {
         val listUser = mutableListOf<User>()
         for (item in list) {
-            val listItem = list.first().split(";").map { it.trim().ifEmpty { null } }
+            val listItem = item.split(";").map { it.trim().ifEmpty { null } }
             listItem[0]?.let {
                 listUser.add(
                     User.makeUser(listItem[0]!!, listItem[1], listItem[2], listItem[3], isFromCsv = true)
